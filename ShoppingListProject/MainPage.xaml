@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingListProject.MainPage"
+             BackgroundColor="LightGray">
+
+    <Grid RowDefinitions="Auto" ColumnDefinitions="1*,Auto,1*" Margin="50,0,50,0">
+        <VerticalStackLayout
+            Grid.Column="0"
+            HorizontalOptions="Center"
+            Margin="0,0"
+            Padding="0,10,0,10"
+            Spacing="20">
+            <Label Text="Wyświetl"
+                   HorizontalTextAlignment="Center"
+                   FontSize="24"/>
+            <Button Text="Lista produktów"
+                    Clicked="onProductsListClicked"
+                    WidthRequest="200"/>
+            <Button Text="Lista kategorii"
+                    Clicked="OnCategoryListClicked"
+                    WidthRequest="200"/>
+            <Button Text="Lista zakupów"
+                    Clicked="OnShoppingListClicked"
+                    WidthRequest="200"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Grid.Column="1"
+            HorizontalOptions="Center"
+            Margin="0,0"
+            Padding="0,10,0,10"
+            Spacing="20">
+            <Label Text="Dodaj"
+                   HorizontalTextAlignment="Center"
+                   FontSize="24"/>
+            <Button Text="Produkt"
+                    Clicked="OnAddProductClicked"
+                    WidthRequest="200"/>
+            <Button Text="Kategorię"
+                    Clicked="OnAddCategoryClicked"
+                    WidthRequest="200"/>
+            <Button Text="Sklep"
+                    Clicked="OnAddShopClicked"
+                    WidthRequest="200"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Grid.Column="2"
+            HorizontalOptions="Center"
+            Margin="0,0"
+            Padding="0,10,0,10"
+            Spacing="20">
+            <Label Text="Zapisz"
+                   HorizontalTextAlignment="Center"
+                   FontSize="24"/>
+            <Button Text="Zapisz listę"
+                    Clicked="OnSaveListClicked"
+                    WidthRequest="200"/>
+            <Button Text="Wyeksportuj"
+                    Clicked="OnExportListClicked"
+                    WidthRequest="200"/>
+            <Button Text="Zaimportuj"
+                    Clicked="OnImportListClicked"
+                    WidthRequest="200"/>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

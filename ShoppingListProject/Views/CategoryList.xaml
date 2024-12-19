@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingListProject.Views.CategoryList">
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Kategorie i Produkty"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   Margin="0,10,10,10" />
+            <Button Text="Powrót"
+                    Clicked="OnGoToMenuClicked" />
+            <CollectionView x:Name="categoriesList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         BackgroundColor="LightGray"
+                                         Padding="10">
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       VerticalOptions="Center" />
+                                <Button Text="Usuń"
+                                        Margin="0,0,10,0"
+                                        Clicked="OnCategoryDeleteClicked"
+                                        BindingContext="{Binding .}" />
+                                <Button Text="Zwiń/Rozwiń"
+                                        Clicked="OnCategoryExpandClicked"
+                                        BindingContext="{Binding .}" />
+
+                            </StackLayout>
+                            <CollectionView ItemsSource="{Binding Products}"
+                                            IsVisible="{Binding IsExpanded}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal"
+                                                     Padding="10">
+                                            <StackLayout.Triggers>
+                                                <DataTrigger TargetType="StackLayout"
+                                                             Binding="{Binding IsBought}"
+                                                             Value="True">
+                                                    <Setter Property="BackgroundColor" Value="Gray" />
+                                                </DataTrigger>
+                                            </StackLayout.Triggers>
+                                            <Label Text="{Binding Name}" FontSize="16" />
+                                            <Label Text="{Binding Quantity}" Margin="10,0,0,0" />
+                                            <Label Text="{Binding Unit}" Margin="10,0,0,0" />
+                                            <Label Text="{Binding Shop}" Margin="10, 0, 0, 0"/>
+                                            <Label Text="Opcjonalne"/>
+                                            <CheckBox IsChecked="{Binding IsOptional}" />
+                                            <Label Text="Kupione"/>
+                                            <CheckBox IsChecked="{Binding IsBought}" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>
